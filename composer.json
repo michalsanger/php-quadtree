@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "nette/tester": "v1.2.0"
+    }
+}
