@@ -69,4 +69,15 @@ class Bounds
     {
         return $this->top;
     }
+    
+    /**
+     * @param \Quadtree\Point $point
+     * @return boolean
+     */
+    public function containsPoint(Point $point)
+    {
+        $leftIn = $point->getLeft() >= $this->left && $point->getLeft() <= ($this->left + $this->width);
+        $topIn = $point->getTop() >= $this->top && $point->getTop() <= ($this->top + $this->height);
+        return $leftIn && $topIn;
+    }
 }
