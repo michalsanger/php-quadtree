@@ -1,10 +1,10 @@
 <?php
 
-require __DIR__ . '/../vendor/nette/tester/Tester/bootstrap.php';
-require __DIR__ . '/../Quadtree/Quadtree.php';
+require __DIR__ . '/bootstrap.php';
 
 use Tester\Assert;
+use Quadtree\Quadtree;
 
 $qt = new Quadtree();
 
-Assert::true($qt->insert(null));
+Assert::true(TRUE);

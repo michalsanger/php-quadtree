@@ -1,5 +1,7 @@
 <?php
 
+namespace Quadtree;
+
 class Quadtree
 {
     public function insert($item)
