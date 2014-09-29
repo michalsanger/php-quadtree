@@ -90,4 +90,16 @@ class Bounds
         $top = $this->top + ($this->height / 2);
         return new Point($left, $top);
     }
+    
+    /**
+     * @param \Quadtree\Bounds $other
+     * @return boolean
+     */
+    public function intersects(Bounds $other)
+    {
+        return $this->left < $other->getLeft() + $other->getWidth()
+                && $other->getLeft() < $this->left + $this->width
+                && $this->top < $other->getTop() + $other->getHeight()
+                && $other->getTop() < $this->top + $this->height;
+    }
 }
