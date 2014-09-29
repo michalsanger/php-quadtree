@@ -80,4 +80,14 @@ class Bounds
         $topIn = $point->getTop() >= $this->top && $point->getTop() < ($this->top + $this->height);
         return $leftIn && $topIn;
     }
+    
+    /**
+     * @return \Quadtree\Point
+     */
+    public function getCenter()
+    {
+        $left = $this->left + ($this->width / 2);
+        $top = $this->top + ($this->height / 2);
+        return new Point($left, $top);
+    }
 }
