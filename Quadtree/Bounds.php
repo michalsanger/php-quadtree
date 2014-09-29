@@ -76,8 +76,8 @@ class Bounds
      */
     public function containsPoint(Point $point)
     {
-        $leftIn = $point->getLeft() >= $this->left && $point->getLeft() <= ($this->left + $this->width);
-        $topIn = $point->getTop() >= $this->top && $point->getTop() <= ($this->top + $this->height);
+        $leftIn = $point->getLeft() >= $this->left && $point->getLeft() < ($this->left + $this->width);
+        $topIn = $point->getTop() >= $this->top && $point->getTop() < ($this->top + $this->height);
         return $leftIn && $topIn;
     }
 }
