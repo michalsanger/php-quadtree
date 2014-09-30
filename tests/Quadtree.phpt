@@ -19,4 +19,4 @@ Assert::true($qt->insert(new Point(40, 40)));
 Assert::true($qt->insert(new Point(40, 10)));
 Assert::true($qt->insert(new Point(15, 15)));
 
-//Assert::false($qt->insert(new Point(40, 10)));
+Assert::false($qt->insert(new Point(40, 10)));

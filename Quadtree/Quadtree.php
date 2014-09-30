@@ -47,12 +47,13 @@ class Quadtree
             $this->items[] = $item;
             return TRUE;
         } else {
-            $this->subdivide();
-            $inserted = $this->nw->insert($item) 
+            if (count($this->items) >= self::CAPACITY) {
+                $this->subdivide();
+            }
+            return $this->nw->insert($item) 
                     || $this->ne->insert($item)
                     || $this->sw->insert($item)
                     || $this->se->insert($item);
-            return $inserted;
         }
     }
     
