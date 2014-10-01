@@ -8,8 +8,9 @@ use Quadtree\Bounds;
 $b = new Bounds(10, 10, -5, 5);
 Assert::false($b->intersects(new Bounds(5, 5, 20)));
 Assert::false($b->intersects(new Bounds(5, 5, -20)));
-Assert::false($b->intersects(new Bounds(5, 5, 5))); // corner touch
-Assert::false($b->intersects(new Bounds(5, 5, 5, 5))); // border touch
+
+Assert::true($b->intersects(new Bounds(5, 5, 5))); // corner touch
+Assert::true($b->intersects(new Bounds(5, 5, 5, 5))); // border touch
 
 Assert::true($b->intersects($b));   // self
 Assert::true($b->intersects(new Bounds(5, 5, 0, 5)));   // small inside

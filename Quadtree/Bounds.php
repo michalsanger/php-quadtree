@@ -97,9 +97,9 @@ class Bounds
      */
     public function intersects(Bounds $other)
     {
-        return $this->left < $other->getLeft() + $other->getWidth()
-                && $other->getLeft() < $this->left + $this->width
-                && $this->top < $other->getTop() + $other->getHeight()
-                && $other->getTop() < $this->top + $this->height;
+        return $this->left <= $other->getLeft() + $other->getWidth()
+                && $other->getLeft() <= $this->left + $this->width
+                && $this->top <= $other->getTop() + $other->getHeight()
+                && $other->getTop() <= $this->top + $this->height;
     }
 }
