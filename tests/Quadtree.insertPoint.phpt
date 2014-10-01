@@ -7,8 +7,8 @@ use Quadtree\Quadtree;
 use Quadtree\Bounds;
 use Quadtree\Point;
 
-$bounds = new Bounds(50, 50);
-$qt = new Quadtree($bounds);
+$qtBounds = new Bounds(50, 50);
+$qt = new Quadtree($qtBounds);
 
 Assert::true($qt->insert(new Point(10, 10)));
 Assert::false($qt->insert(new Point(10, 10)));
