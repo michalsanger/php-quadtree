@@ -2,7 +2,7 @@
 
 namespace Quadtree;
 
-class Bounds
+class Bounds implements IBoundable
 {
     /** @var float */
     private $width;
@@ -101,5 +101,13 @@ class Bounds
                 && $other->getLeft() <= $this->left + $this->width
                 && $this->top <= $other->getTop() + $other->getHeight()
                 && $other->getTop() <= $this->top + $this->height;
+    }
+    
+    /**
+     * @return \Quadtree\Bounds
+     */
+    public function getBounds()
+    {
+        return $this;
     }
 }
