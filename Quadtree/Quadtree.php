@@ -9,7 +9,7 @@ class Quadtree
     /** @var Bounds */
     private $bounds;
     
-    /** @var Point[] */
+    /** @var IBoundable[] */
     private $items = [];
     
     /** @var Quadtree */
@@ -32,13 +32,17 @@ class Quadtree
         $this->bounds = $bounds;
     }
     
-    public function insert(Point $item)
+    /**
+     * @param \Quadtree\IBoundable $item
+     * @return boolean
+     */
+    public function insert(IBoundable $item)
     {
-        if (!$this->bounds->containsPoint($item)) {
+        if (!$this->bounds->intersects($item->getBounds())) {
             return FALSE;
         }
-        foreach ($this->items as $i) {
-            if ($item->equals($i)) {
+        foreach ($this->items as $inserted) {
+            if ($item->getBounds()->intersects($inserted->getBounds())) {
                 return FALSE;
             }
         }

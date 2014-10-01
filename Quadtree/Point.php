@@ -2,13 +2,16 @@
 
 namespace Quadtree;
 
-class Point
+class Point implements IBoundable
 {
     /** @var float */
     private $left;
     
     /** @var float */
     private $top;
+    
+    /** @var Bounds */
+    private $bounds;
     
     /**
      * @param float $left
@@ -47,4 +50,16 @@ class Point
     {
         return $this->left === $point->getLeft() && $this->top === $point->getTop();
     }
+    
+    /**
+     * @return Bounds
+     */
+    public function getBounds()
+    {
+        if ($this->bounds === NULL) {
+            $this->bounds = new Bounds(0, 0, $this->left, $this->top);
+        }
+        return $this->bounds;
+    }
+
 }
