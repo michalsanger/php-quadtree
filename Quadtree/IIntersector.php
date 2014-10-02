@@ -2,7 +2,9 @@
 
 namespace Quadtree;
 
-interface IIntersector
+interface IIntersector // TODO: ICollisionDetector?
 {
     function Intersects(IBoundable $bounds, IBoundable $item);
+    
+    //function Collide(array $items, IBoundable $item);
 }
