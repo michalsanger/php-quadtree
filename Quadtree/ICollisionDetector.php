@@ -2,7 +2,7 @@
 
 namespace Quadtree;
 
-interface IIntersector // TODO: ICollisionDetector?
+interface ICollisionDetector // TODO: ICollisionDetector?
 {
     /**
      * Test if two bounds intersects

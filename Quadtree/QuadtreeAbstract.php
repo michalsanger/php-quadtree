@@ -6,8 +6,8 @@ abstract class QuadtreeAbstract
 {
     const CAPACITY = 4;
 
-    /** @var IIntersector */
-    private $intersector;
+    /** @var ICollisionDetector */
+    private $detector;
     
     /** @var Bounds */
     private $bounds;
@@ -28,12 +28,12 @@ abstract class QuadtreeAbstract
     private $se;
     
     /**
-     * @param IIntersector $intersector
+     * @param \Quadtree\ICollisionDetector $detector
      * @param \Quadtree\Bounds $bounds
      */
-    function __construct(IIntersector $intersector, Bounds $bounds)
+    function __construct(ICollisionDetector $detector, Bounds $bounds)
     {
-        $this->intersector = $intersector;
+        $this->detector = $detector;
         $this->bounds = $bounds;
     }
     
@@ -43,10 +43,10 @@ abstract class QuadtreeAbstract
      */
     public function insert(Insertable $item)
     {
-        if (!$this->intersector->intersects($this->bounds, $item)) {
+        if (!$this->detector->intersects($this->bounds, $item)) {
             return FALSE;
         }
-        if ($this->intersector->collide($this->items, $item)) {
+        if ($this->detector->collide($this->items, $item)) {
             return FALSE;
         }
         

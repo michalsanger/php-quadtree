@@ -1,8 +1,8 @@
 <?php
 
-namespace Quadtree; // TODO: Quadtree/Intersector or Quadtree/Boundary?
+namespace Quadtree;
 
-class BoundsIntersector implements \Quadtree\IIntersector
+class BoundsCollisionDetector implements \Quadtree\ICollisionDetector
 {
     /**
      * @param \Quadtree\Insertable $bounds
