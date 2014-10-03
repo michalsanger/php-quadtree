@@ -12,7 +12,7 @@ abstract class QuadtreeAbstract
     /** @var Bounds */
     private $bounds;
     
-    /** @var IBoundable[] */
+    /** @var Insertable[] */
     private $items = [];
     
     /** @var Quadtree */
@@ -38,10 +38,10 @@ abstract class QuadtreeAbstract
     }
     
     /**
-     * @param \Quadtree\IBoundable $item
+     * @param \Quadtree\Insertable $item
      * @return boolean
      */
-    public function insert(IBoundable $item)
+    public function insert(Insertable $item)
     {
         if (!$this->intersector->intersects($this->bounds, $item)) {
             return FALSE;

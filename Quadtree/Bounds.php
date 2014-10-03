@@ -2,7 +2,7 @@
 
 namespace Quadtree;
 
-class Bounds implements IBoundable
+class Bounds implements Insertable
 {
     /** @var float */
     private $width;

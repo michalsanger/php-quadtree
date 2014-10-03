@@ -2,7 +2,7 @@
 
 namespace Quadtree;
 
-class Point implements IBoundable
+class Point implements Insertable
 {
     /** @var float */
     private $left;

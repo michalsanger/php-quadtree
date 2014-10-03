@@ -2,7 +2,7 @@
 
 namespace Quadtree;
 
-interface IBoundable
+interface Insertable
 {
     /**
      * @return Bounds
