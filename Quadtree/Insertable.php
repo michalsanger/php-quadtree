@@ -5,7 +5,7 @@ namespace Quadtree;
 interface Insertable
 {
     /**
-     * @return Bounds
+     * @return Geometry\Bounds
      */
     function getBounds();
 }

@@ -1,9 +1,9 @@
 <?php
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
-use Quadtree\Point;
+use Quadtree\Geometry\Point;
 
 $point = new Point(10, 20);
 Assert::true($point->equals(new Point(10, 20)));

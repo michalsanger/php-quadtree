@@ -1,9 +1,9 @@
 <?php
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
-use Quadtree\Bounds;
+use Quadtree\Geometry\Bounds;
 
 $b = new Bounds(10, 20);
 Assert::equal((float)10, $b->getWidth());

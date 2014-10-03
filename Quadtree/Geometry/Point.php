@@ -1,8 +1,8 @@
 <?php
 
-namespace Quadtree;
+namespace Quadtree\Geometry;
 
-class Point implements Insertable
+class Point implements \Quadtree\Insertable
 {
     /** @var float */
     private $left;

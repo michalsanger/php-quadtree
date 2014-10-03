@@ -1,8 +1,8 @@
 <?php
 
-namespace Quadtree;
+namespace Quadtree\Geometry;
 
-class Bounds implements Insertable
+class Bounds implements \Quadtree\Insertable
 {
     /** @var float */
     private $width;
@@ -71,7 +71,7 @@ class Bounds implements Insertable
     }
     
     /**
-     * @param \Quadtree\Point $point
+     * @param \Quadtree\Geometry\Point $point
      * @return boolean
      */
     public function containsPoint(Point $point)
@@ -82,7 +82,7 @@ class Bounds implements Insertable
     }
     
     /**
-     * @return \Quadtree\Point
+     * @return \Quadtree\Geometry\Point
      */
     public function getCenter()
     {
@@ -92,7 +92,7 @@ class Bounds implements Insertable
     }
     
     /**
-     * @param \Quadtree\Bounds $other
+     * @param \Quadtree\Geometry\Bounds $other
      * @return boolean
      */
     public function intersects(Bounds $other)
@@ -104,7 +104,7 @@ class Bounds implements Insertable
     }
     
     /**
-     * @return \Quadtree\Bounds
+     * @return \Quadtree\Geometry\Bounds
      */
     public function getBounds()
     {

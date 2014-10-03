@@ -1,9 +1,9 @@
 <?php
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
-use Quadtree\Bounds;
+use Quadtree\Geometry\Bounds;
 
 $b = new Bounds(10, 10, -5, 5);
 Assert::false($b->intersects(new Bounds(5, 5, 20)));

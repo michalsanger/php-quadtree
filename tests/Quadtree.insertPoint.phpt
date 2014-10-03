@@ -4,8 +4,8 @@ require __DIR__ . '/bootstrap.php';
 
 use Tester\Assert;
 use Quadtree\Quadtree;
-use Quadtree\Bounds;
-use Quadtree\Point;
+use Quadtree\Geometry\Bounds;
+use Quadtree\Geometry\Point;
 
 $qtBounds = new Bounds(50, 50);
 $qt = new Quadtree($qtBounds);

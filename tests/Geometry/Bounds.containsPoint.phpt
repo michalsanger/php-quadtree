@@ -1,10 +1,10 @@
 <?php
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
-use Quadtree\Bounds;
-use Quadtree\Point;
+use Quadtree\Geometry\Bounds;
+use Quadtree\Geometry\Point;
 
 $b = new Bounds(10, 20, 10, 10);
 Assert::true($b->containsPoint(new Point(15, 15)));

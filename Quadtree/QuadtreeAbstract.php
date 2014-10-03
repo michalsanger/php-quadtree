@@ -2,6 +2,8 @@
 
 namespace Quadtree;
 
+use Quadtree\Geometry\Bounds;
+
 abstract class QuadtreeAbstract
 {
     const CAPACITY = 4;
@@ -9,7 +11,7 @@ abstract class QuadtreeAbstract
     /** @var ICollisionDetector */
     private $detector;
     
-    /** @var Bounds */
+    /** @var Geometry\Boundss */
     private $bounds;
     
     /** @var Insertable[] */
@@ -29,9 +31,9 @@ abstract class QuadtreeAbstract
     
     /**
      * @param \Quadtree\ICollisionDetector $detector
-     * @param \Quadtree\Bounds $bounds
+     * @param \Quadtree\Geometry\Bounds $bounds
      */
-    function __construct(ICollisionDetector $detector, Bounds $bounds)
+    function __construct(ICollisionDetector $detector, Geometry\Bounds $bounds)
     {
         $this->detector = $detector;
         $this->bounds = $bounds;
