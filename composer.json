@@ -1,4 +1,19 @@
 {
+    "name": "michalsanger/quadtree",
+    "description": "An easy-to-modify quadtree.",
+    "keywords": ["quadtree", "collision detection"],
+    "license": ["MIT"],
+    "authors": [
+        {
+            "name": "Michal Sänger",
+            "email": "michal.sanger@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Quadtree\\": "Quadtree"
+        }
+    },
     "require-dev": {
         "nette/tester": "v1.2.0"
     }
