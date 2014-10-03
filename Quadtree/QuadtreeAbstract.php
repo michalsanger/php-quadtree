@@ -43,13 +43,11 @@ abstract class QuadtreeAbstract
      */
     public function insert(IBoundable $item)
     {
-        if (!$this->intersector->Intersects($this->bounds, $item)) {
+        if (!$this->intersector->intersects($this->bounds, $item)) {
             return FALSE;
         }
-        foreach ($this->items as $inserted) {
-            if ($this->intersector->Intersects($inserted, $item)) {
-                return FALSE;
-            }
+        if ($this->intersector->collide($this->items, $item)) {
+            return FALSE;
         }
         
         if ($this->nw === NULL && count($this->items) < self::CAPACITY) {
