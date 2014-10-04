@@ -1,4 +1,4 @@
-php-quadtree
+Quadtree
 ============
 An easy-to-modify [Quadtree](http://en.wikipedia.org/wiki/Quadtree) with standard 2D implementation.
 
