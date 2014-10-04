@@ -80,7 +80,7 @@ abstract class QuadtreeAbstract
     }
     
     /**
-     * @return Quadtree[]
+     * @return QuadtreeAbstract[]
      */
     private function getDividedBounds()
     {
@@ -88,10 +88,10 @@ abstract class QuadtreeAbstract
         $width = $this->bounds->getWidth() / 2;
         $height = $this->bounds->getHeight() / 2;
         
-        $nw = new Quadtree(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop() - $height));
-        $ne = new Quadtree(new Bounds($width, $height, $c->getLeft(), $c->getTop() - $height));
-        $sw = new Quadtree(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop()));
-        $se = new Quadtree(new Bounds($width, $height, $c->getLeft(), $c->getTop()));
+        $nw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop() - $height));
+        $ne = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop() - $height));
+        $sw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop()));
+        $se = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop()));
         return [$nw, $ne, $sw, $se];
     }
 }
