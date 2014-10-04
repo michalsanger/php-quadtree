@@ -5,17 +5,17 @@ namespace Quadtree;
 class BoundsCollisionDetector implements \Quadtree\ICollisionDetector
 {
     /**
-     * @param \Quadtree\Insertable $bounds
+     * @param \Quadtree\Geometry\Bounds $bounds
      * @param \Quadtree\Insertable $item
      * @return boolean
      */
-    public function intersects(Insertable $bounds, Insertable $item)
+    public function intersects(Geometry\Bounds $bounds, Insertable $item)
     {
         return $bounds->getBounds()->intersects($item->getBounds());
     }
     
     /**
-     * @param \Quadtree\Insertable $insertedItems
+     * @param \Quadtree\Insertable[] $insertedItems
      * @param \Quadtree\Insertable $item
      * @return boolean
      */

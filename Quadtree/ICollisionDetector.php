@@ -2,19 +2,19 @@
 
 namespace Quadtree;
 
-interface ICollisionDetector // TODO: ICollisionDetector?
+interface ICollisionDetector
 {
     /**
-     * Test if two bounds intersects
-     * @param \Quadtree\Insertable $bounds
+     * Test if insertable items intersects with bounds
+     * @param \Quadtree\Geometry\Bounds $bounds
      * @param \Quadtree\Insertable $item
      * @return boolean
      */
-    function intersects(Insertable $bounds, Insertable $item);
+    function intersects(Geometry\Bounds $bounds, Insertable $item);
     
     /**
      * Test if new items collides with collection of items
-     * @param array $insertedItems
+     * @param \Quadtree\Insertable[] $insertedItems
      * @param \Quadtree\Insertable $item
      * @return boolean
      */
