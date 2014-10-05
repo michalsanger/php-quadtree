@@ -1,5 +1,6 @@
-Quadtree
-============
+Quadtree [![Build Status](https://travis-ci.org/michalsanger/php-quadtree.svg?branch=master)](https://travis-ci.org/michalsanger/php-quadtree)
+========
+
 An easy-to-modify [Quadtree](http://en.wikipedia.org/wiki/Quadtree) with standard 2D implementation.
 
 Usage
