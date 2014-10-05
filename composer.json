@@ -13,7 +13,7 @@
        "classmap": ["Quadtree/"]
     },
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.3"
     },
     "require-dev": {
         "nette/tester": "v1.2.0"
