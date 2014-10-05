@@ -15,7 +15,7 @@ abstract class QuadtreeAbstract
     private $bounds;
     
     /** @var Insertable[] */
-    private $items = [];
+    private $items = array();
     
     /** @var Quadtree */
     private $nw;
@@ -76,7 +76,7 @@ abstract class QuadtreeAbstract
             $this->sw->insert($item);
             $this->se->insert($item);
         }
-        $this->items = [];
+        $this->items = array();
     }
     
     /**
