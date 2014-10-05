@@ -28,18 +28,8 @@ Need to insert other objects then points and bounds? Implement [`Insertable`](ht
 Installation
 ------------
 Use Composer:
-```json
-{
-    "require": {
-        "michalsanger/quadtree": "0.0.1"
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/michalsanger/php-quadtree.git"
-        }
-    ]
-}
+```
+composer require michalsanger/quadtree
 ```
 
 Tests
