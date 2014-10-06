@@ -77,6 +77,20 @@ abstract class QuadtreeAbstract
         }
     }
     
+    /**
+     * Number of levels in the tree
+     * @return int
+     */
+    public function getDepth()
+    {
+        if ($this->nw === NULL) {
+            return 0;
+        } else {
+            $max = max($this->nw->getDepth(), $this->ne->getDepth(), $this->sw->getDepth(), $this->se->getDepth());
+            return 1 + $max;
+        }
+    }
+    
     private function subdivide()
     {
         list($this->nw, $this->ne, $this->sw, $this->se) = $this->getDividedBounds();
