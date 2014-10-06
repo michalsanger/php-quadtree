@@ -14,6 +14,9 @@ abstract class QuadtreeAbstract
     /** @var Geometry\Boundss */
     private $bounds;
     
+    /** @var int */
+    private $capacity;
+    
     /** @var Insertable[] */
     private $items = array();
     
@@ -32,11 +35,18 @@ abstract class QuadtreeAbstract
     /**
      * @param \Quadtree\ICollisionDetector $detector
      * @param \Quadtree\Geometry\Bounds $bounds
+     * @param int $leafCapacity
      */
-    function __construct(ICollisionDetector $detector, Geometry\Bounds $bounds)
+    function __construct(ICollisionDetector $detector, Geometry\Bounds $bounds, $leafCapacity = NULL)
     {
         $this->detector = $detector;
         $this->bounds = $bounds;
+
+        $capacity = (int)$leafCapacity;
+        if ($capacity <= 0) {
+            $capacity = static::CAPACITY;
+        }
+        $this->capacity = $capacity;
     }
     
     /**
@@ -52,11 +62,11 @@ abstract class QuadtreeAbstract
             return FALSE;
         }
         
-        if ($this->nw === NULL && count($this->items) < self::CAPACITY) {
+        if ($this->nw === NULL && count($this->items) < $this->capacity) {
             $this->items[] = $item;
             return TRUE;
         } else {
-            if (count($this->items) >= self::CAPACITY) {
+            if (count($this->items) >= $this->capacity) {
                 $this->subdivide();
             }
             $nwIn = $this->nw->insert($item);
