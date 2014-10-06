@@ -98,10 +98,10 @@ abstract class QuadtreeAbstract
         $width = $this->bounds->getWidth() / 2;
         $height = $this->bounds->getHeight() / 2;
         
-        $nw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop() - $height));
-        $ne = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop() - $height));
-        $sw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop()));
-        $se = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop()));
+        $nw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop() - $height), $this->capacity);
+        $ne = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop() - $height), $this->capacity);
+        $sw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop()), $this->capacity);
+        $se = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop()), $this->capacity);
         return array($nw, $ne, $sw, $se);
     }
 }
