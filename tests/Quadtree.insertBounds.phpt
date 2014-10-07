@@ -27,3 +27,7 @@ Assert::true($qt3->insert(new Bounds(2, 2, 40, 10)));
 Assert::true($qt3->insert(new Bounds(2, 2, 15, 15)));
 
 Assert::false($qt3->insert(new Bounds(2, 2, 40, 10)));
+
+Assert::equal(2, $qt->getSize());
+Assert::equal(1, $qt2->getSize());
+Assert::equal(4, $qt3->getSize());

@@ -90,6 +90,19 @@ abstract class QuadtreeAbstract
             return 1 + $max;
         }
     }
+
+    /**
+     * Number of items in the tree
+     * @return int
+     */
+    public function getSize()
+    {
+        if ($this->nw === NULL) {
+            return count($this->items);
+        } else {
+            return $this->nw->getSize() + $this->ne->getSize() + $this->sw->getSize() + $this->se->getSize();
+        }
+    }
     
     private function subdivide()
     {
