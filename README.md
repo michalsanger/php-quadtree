@@ -25,6 +25,10 @@ $qt->insert(new Point(299, 199)); // TRUE
 Need more logic for collision detection? Create your own [`ICollisionDetector`](https://github.com/michalsanger/php-quadtree/blob/master/Quadtree/ICollisionDetector.php). 
 Need to insert other objects then points and bounds? Implement [`Insertable`](https://github.com/michalsanger/php-quadtree/blob/master/Quadtree/Insertable.php) interface.
 
+API
+---
+[See the docs](http://michalsanger.github.io/php-quadtree/api/)
+
 Installation
 ------------
 Use Composer:
