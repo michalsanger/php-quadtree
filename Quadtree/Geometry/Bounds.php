@@ -110,4 +110,12 @@ class Bounds implements \Quadtree\Insertable
     {
         return $this;
     }
+    
+    /**
+     * @return float
+     */
+    public function getArea()
+    {
+        return $this->width * $this->height;
+    }
 }
