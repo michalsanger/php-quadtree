@@ -104,6 +104,26 @@ class Bounds implements \Quadtree\Insertable
     }
     
     /**
+     * Returns the intersection of two rectangles
+     * @param \Quadtree\Geometry\Bounds $other
+     * @return \Quadtree\Geometry\Bounds | NULL
+     */
+    public function intersection(Bounds $other)
+    {
+        $x0 = max($this->left, $other->getLeft());
+        $x1 = min($this->left + $this->width, $other->getLeft() + $other->getWidth());
+        if ($x0 <= $x1) {
+            $y0 = max($this->top, $other->getTop());
+            $y1 = min($this->top + $this->height, $other->getTop() + $other->getHeight());
+            if ($y0 <= $y1) {
+                return new static($x1 - $x0, $y1 - $y0, $x0, $y0);
+            }
+        }
+        return NULL;
+    }
+
+
+    /**
      * @return \Quadtree\Geometry\Bounds
      */
     public function getBounds()
