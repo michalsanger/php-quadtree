@@ -2,6 +2,9 @@
 
 namespace Quadtree\Geometry;
 
+/**
+ * A Bounds represents a rectangle on a two-dimensional plane
+ */
 class Bounds implements \Quadtree\Insertable
 {
     /** @var float */
@@ -71,6 +74,7 @@ class Bounds implements \Quadtree\Insertable
     }
     
     /**
+     * Returns true if the given point is in this bounds
      * @param \Quadtree\Geometry\Point $point
      * @return boolean
      */
@@ -82,6 +86,7 @@ class Bounds implements \Quadtree\Insertable
     }
     
     /**
+     * Computes the center of this bounds
      * @return \Quadtree\Geometry\Point
      */
     public function getCenter()
@@ -92,6 +97,7 @@ class Bounds implements \Quadtree\Insertable
     }
     
     /**
+     * Returns true if this bounds shares any points with other bounds
      * @param \Quadtree\Geometry\Bounds $other
      * @return boolean
      */
@@ -104,7 +110,7 @@ class Bounds implements \Quadtree\Insertable
     }
     
     /**
-     * Returns the intersection of two rectangles
+     * Returns the intersection of two bounds
      * @param \Quadtree\Geometry\Bounds $other
      * @return \Quadtree\Geometry\Bounds | NULL
      */
@@ -124,6 +130,7 @@ class Bounds implements \Quadtree\Insertable
 
 
     /**
+     * Get 2D envelope
      * @return \Quadtree\Geometry\Bounds
      */
     public function getBounds()
@@ -132,6 +139,7 @@ class Bounds implements \Quadtree\Insertable
     }
     
     /**
+     * Calculate size of area
      * @return float
      */
     public function getArea()

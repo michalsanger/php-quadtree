@@ -2,6 +2,9 @@
 
 namespace Quadtree\Geometry;
 
+/**
+ * A point on a two-dimensional plane
+ */
 class Point implements \Quadtree\Insertable
 {
     /** @var float */
@@ -43,6 +46,7 @@ class Point implements \Quadtree\Insertable
     }
     
     /**
+     * Comparison function
      * @param \Quadtree\Point $point
      * @return boolean
      */
@@ -52,6 +56,7 @@ class Point implements \Quadtree\Insertable
     }
     
     /**
+     * Get 2D envelope
      * @return Bounds
      */
     public function getBounds()
