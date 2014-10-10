@@ -6,3 +6,4 @@ tests/
 composer.json
 LICENSE
 README.md
+apigen.phar
