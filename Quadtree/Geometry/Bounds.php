@@ -138,4 +138,17 @@ class Bounds implements \Quadtree\Insertable
     {
         return $this->width * $this->height;
     }
+    
+    /**
+     * Comparison function
+     * @param \Quadtree\Geometry\Bounds $other
+     * @return boolean
+     */
+    public function equals(Bounds $other)
+    {
+        return $this->width === $other->getWidth()
+                && $this->height === $other->getHeight()
+                && $this->left === $other->getLeft()
+                && $this->top === $other->getTop();
+    }
 }
