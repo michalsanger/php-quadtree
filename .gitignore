@@ -1,0 +1,8 @@
+vendor/
+composer.lock
+Quadtree/
+tests/
+.travis.yml
+composer.json
+LICENSE
+README.md
