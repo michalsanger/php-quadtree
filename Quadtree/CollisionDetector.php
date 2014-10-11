@@ -2,7 +2,7 @@
 
 namespace Quadtree;
 
-class BoundsCollisionDetector implements \Quadtree\ICollisionDetector
+class CollisionDetector implements \Quadtree\ICollisionDetector
 {
     /**
      * @param \Quadtree\Geometry\Bounds $bounds
