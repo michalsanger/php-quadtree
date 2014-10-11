@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Interface Quadtree\ICollisionDetector</title>
+	<title>Class Quadtree\CollisionDetector</title>
 
 	<link rel="stylesheet" href="resources/style.css?1648332946">
 
@@ -32,14 +32,14 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Quadtree.CollisionDetector.html">CollisionDetector</a></li>
+				<li class="active"><a href="class-Quadtree.CollisionDetector.html">CollisionDetector</a></li>
 				<li><a href="class-Quadtree.Quadtree.html">Quadtree</a></li>
 				<li><a href="class-Quadtree.QuadtreeAbstract.html">QuadtreeAbstract</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li class="active"><a href="class-Quadtree.ICollisionDetector.html">ICollisionDetector</a></li>
+				<li><a href="class-Quadtree.ICollisionDetector.html">ICollisionDetector</a></li>
 				<li><a href="class-Quadtree.Insertable.html">Insertable</a></li>
 			</ul>
 
@@ -81,7 +81,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Interface ICollisionDetector</h1>
+	<h1>Class CollisionDetector</h1>
 
 
 	<div class="description">
@@ -89,14 +89,19 @@
 
 	</div>
 
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Quadtree\CollisionDetector</span></b>			
+			 implements 
+				<a href="class-Quadtree.ICollisionDetector.html"><span>Quadtree\ICollisionDetector</span></a>
+			
+			
+		</dd>
+	</dl>
 
 
 
 
-	<div>
-		<h4>Direct known implementers</h4>
-			<a href="class-Quadtree.CollisionDetector.html">Quadtree\CollisionDetector</a>
-	</div>
 
 
 
@@ -107,7 +112,7 @@
 		<b>Namespace:</b> Quadtree<br>
 		
 
-		<b>Located at</b> <a href="source-class-Quadtree.ICollisionDetector.html#5-22" title="Go to source code">ICollisionDetector.php</a><br>
+		<b>Located at</b> <a href="source-class-Quadtree.CollisionDetector.html#5-31" title="Go to source code">CollisionDetector.php</a><br>
 	</div>
 
 
@@ -126,15 +131,15 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_intersects">#</a>
-		<code><a href="source-class-Quadtree.ICollisionDetector.html#7-13" title="Go to source code">intersects</a>( <span><code><a href="class-Quadtree.Geometry.Bounds.html">Quadtree\Geometry\Bounds</a></code> <var>$bounds</var></span>, <span><code><a href="class-Quadtree.Insertable.html">Quadtree\Insertable</a></code> <var>$item</var></span> )</code>
+		<code><a href="source-class-Quadtree.CollisionDetector.html#7-15" title="Go to source code">intersects</a>( <span><code><a href="class-Quadtree.Geometry.Bounds.html">Quadtree\Geometry\Bounds</a></code> <var>$bounds</var></span>, <span><code><a href="class-Quadtree.Insertable.html">Quadtree\Insertable</a></code> <var>$item</var></span> )</code>
 
 		<div class="description short">
-			<p>Test if insertable item intersects with bounds</p>
+			
 
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Test if insertable item intersects with bounds</p>
+			
 
 
 
@@ -156,6 +161,8 @@
 
 
 
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Quadtree.ICollisionDetector.html#_intersects">Quadtree\ICollisionDetector::intersects()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -171,15 +178,15 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_collide">#</a>
-		<code><a href="source-class-Quadtree.ICollisionDetector.html#15-21" title="Go to source code">collide</a>( <span>array <var>$insertedItems</var></span>, <span><code><a href="class-Quadtree.Insertable.html">Quadtree\Insertable</a></code> <var>$item</var></span> )</code>
+		<code><a href="source-class-Quadtree.CollisionDetector.html#17-30" title="Go to source code">collide</a>( <span>array <var>$insertedItems</var></span>, <span><code><a href="class-Quadtree.Insertable.html">Quadtree\Insertable</a></code> <var>$item</var></span> )</code>
 
 		<div class="description short">
-			<p>Test if new item collides with collection of items</p>
+			
 
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Test if new item collides with collection of items</p>
+			
 
 
 
@@ -201,6 +208,8 @@
 
 
 
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Quadtree.ICollisionDetector.html#_collide">Quadtree\ICollisionDetector::collide()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
