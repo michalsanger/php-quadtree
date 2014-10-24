@@ -159,4 +159,14 @@ class Bounds implements \Quadtree\Insertable
                 && $this->left === $other->getLeft()
                 && $this->top === $other->getTop();
     }
+    
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        $values = implode(', ', array($this->width, $this->height, $this->left, $this->top));
+        return '(' . $values . ')';
+    }
+
 }
