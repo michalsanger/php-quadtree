@@ -10,16 +10,16 @@ abstract class QuadtreeAbstract
 
     /** @var ICollisionDetector */
     private $detector;
-    
+
     /** @var Geometry\Boundss */
     private $bounds;
-    
+
     /** @var int */
     private $capacity;
-    
+
     /** @var Insertable[] */
     private $items = array();
-    
+
     /** @var Quadtree */
     private $nw;
 
@@ -31,7 +31,7 @@ abstract class QuadtreeAbstract
 
     /** @var Quadtree */
     private $se;
-    
+
     /**
      * @param \Quadtree\ICollisionDetector $detector
      * @param \Quadtree\Geometry\Bounds $bounds
@@ -48,7 +48,7 @@ abstract class QuadtreeAbstract
         }
         $this->capacity = $capacity;
     }
-    
+
     /**
      * @param \Quadtree\Insertable $item
      * @return boolean
@@ -58,10 +58,37 @@ abstract class QuadtreeAbstract
         if (!$this->detector->intersects($this->bounds, $item)) {
             return FALSE;
         }
-        if ($this->detector->collide($this->items, $item)) {
+        if ($this->collideWithItems($item)) {
             return FALSE;
         }
-        
+        return $this->insertItem($item);
+    }
+
+    /**
+     * @param \Quadtree\Insertable $item
+     * @return boolean
+     */
+    public function collideWithItems(Insertable $item)
+    {
+        if (!$this->detector->intersects($this->bounds, $item)) {
+            return false;
+        }
+        if ($this->nw === NULL) {
+            return $this->detector->collide($this->items, $item);
+        } else {
+            return $this->nw->collideWithItems($item)
+                    || $this->ne->collideWithItems($item)
+                    || $this->sw->collideWithItems($item)
+                    || $this->se->collideWithItems($item);
+        }
+    }
+
+    /**
+     * @param \Quadtree\Insertable $item
+     * @return boolean
+     */
+    private function insertItem(Insertable $item)
+    {
         if ($this->nw === NULL && count($this->items) < $this->capacity) {
             $this->items[] = $item;
             return TRUE;
@@ -69,14 +96,23 @@ abstract class QuadtreeAbstract
             if (count($this->items) >= $this->capacity) {
                 $this->subdivide();
             }
-            $nwIn = $this->nw->insert($item);
-            $neIn = $this->ne->insert($item);
-            $swIn = $this->sw->insert($item);
-            $seIn = $this->se->insert($item);
-            return $nwIn || $neIn || $swIn || $seIn;
+            return $this->insertItemIntoSubtrees($item);
         }
     }
-    
+
+    /**
+     * @param \Quadtree\Insertable $item
+     * @return boolean
+     */
+    private function insertItemIntoSubtrees(Insertable $item)
+    {
+        $nwIn = $this->nw->insert($item);
+        $neIn = $this->ne->insert($item);
+        $swIn = $this->sw->insert($item);
+        $seIn = $this->se->insert($item);
+        return $nwIn || $neIn || $swIn || $seIn;
+    }
+
     /**
      * Number of levels in the tree
      * @return int
@@ -103,7 +139,7 @@ abstract class QuadtreeAbstract
             return $this->nw->getSize() + $this->ne->getSize() + $this->sw->getSize() + $this->se->getSize();
         }
     }
-    
+
     private function subdivide()
     {
         list($this->nw, $this->ne, $this->sw, $this->se) = $this->getDividedBounds();
@@ -115,7 +151,7 @@ abstract class QuadtreeAbstract
         }
         $this->items = array();
     }
-    
+
     /**
      * @return QuadtreeAbstract[]
      */
@@ -124,11 +160,12 @@ abstract class QuadtreeAbstract
         $c = $this->bounds->getCenter();
         $width = $this->bounds->getWidth() / 2;
         $height = $this->bounds->getHeight() / 2;
-        
+
         $nw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop() - $height), $this->capacity);
         $ne = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop() - $height), $this->capacity);
         $sw = new static(new Bounds($width, $height, $c->getLeft() - $width, $c->getTop()), $this->capacity);
         $se = new static(new Bounds($width, $height, $c->getLeft(), $c->getTop()), $this->capacity);
+
         return array($nw, $ne, $sw, $se);
     }
 }
