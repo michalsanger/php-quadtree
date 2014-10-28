@@ -169,4 +169,16 @@ class Bounds implements \Quadtree\Insertable
         return '(' . $values . ')';
     }
 
+    /**
+     * Tests whether this rectangle entirely contains another rectangle
+     * @param \Quadtree\Geometry\Bounds $other
+     * @return boolean
+     */
+    public function contains(Bounds $other)
+    {
+        return $this->left <= $other->getLeft()
+                && $this->top <= $other->getTop()
+                && ($this->left + $this->width) >= ($other->getLeft() + $other->getWidth())
+                && ($this->top + $this->height) >= ($other->getTop() + $other->getHeight());
+    }
 }
