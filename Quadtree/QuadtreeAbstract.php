@@ -31,6 +31,9 @@ abstract class QuadtreeAbstract
 
     /** @var Quadtree */
     private $se;
+    
+    /** @var boolean */
+    private $overlappingInserted = FALSE;
 
     /**
      * @param \Quadtree\ICollisionDetector $detector
@@ -89,6 +92,12 @@ abstract class QuadtreeAbstract
      */
     private function insertItem(Insertable $item)
     {
+        if ($this->overlappingInserted || $item->getBounds()->contains($this->bounds)) {
+            $this->items[] = $item;
+            $this->overlappingInserted = true;
+            return TRUE;
+        }
+
         if ($this->nw === NULL && count($this->items) < $this->capacity) {
             $this->items[] = $item;
             return TRUE;
